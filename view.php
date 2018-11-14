@@ -17,11 +17,7 @@
 	<input type="submit" name="submit">
 </form>
 <?php
-foreach ($pirkejai as $pirk) {
-	echo "ID: " .$pirk['ID'] . "<br/>"
-	."Vardas: " .$pirk['vardas'] . "<br/>"
-	."Pavarde: " .$pirk['pavarde'] . "<br/>";
-}
+
 ?>
 
 

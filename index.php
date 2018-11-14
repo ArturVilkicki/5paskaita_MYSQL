@@ -6,8 +6,8 @@ $conn = new mysqli($servername, $username, $password, $db);
 if ($conn->connect_error) {
     die("Connection failed: " . mysqli_connect_error());
 } 
-mysqli_set_charset($conn, "utf8");
-$sql = "SELECT * FROM pirkejai"; /*SELECT * FROM products ORDER BY id jeigu eiles tvarka */
+//mysqli_set_charset($conn, "utf8");
+$sql = "SELECT * FROM pirkejai ORDER BY ID"; /*SELECT * FROM products ORDER BY id jeigu eiles tvarka */
 $result = mysqli_query($conn, $sql);
 $pirkejai = [];
 if (mysqli_num_rows($result) > 0) {
@@ -24,7 +24,8 @@ if (mysqli_num_rows($result) > 0) {
     $err = "Pirkeju nerasta";
 }
 mysqli_close($conn);
-include "view.php";
+include "listai.php";
+//include "view.php";
 $id = $_POST['id'];
 $name = $_POST['name'];
 $surname = $_POST['surname'];
