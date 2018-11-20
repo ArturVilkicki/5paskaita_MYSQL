@@ -15,11 +15,7 @@ if (mysqli_num_rows($result) > 0) {
     $err = "Pirkeju nerasta";
 }
 mysqli_close($conn);
-
-
-
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,9 +26,12 @@ mysqli_close($conn);
 	foreach ($pirkejai as $pirk) {
 	echo "ID: " .$pirk['ID'] . "<br/>"
 	."Vardas: " .$pirk['vardas'] . "<br/>"
-	."Pavarde: " .$pirk['pavarde'] . "<br/>"
-	."<a href='update.php?id=$pirk[ID]'>Edit</a>" . "<br/>"
-	."<a href='delete.php?id=$pirk[ID]&name=$pirk[vardas]&surname=$pirk[pavarde]'>Delete</a>" ."<br/>";
+	."Pavarde: " .$pirk['pavarde'] ."<button type='edit' name='edit'>EDIT</button>" ."<br/>";
+	}
+	if (isset($_GET['edit'])) {
+		$editID = $_GET['ID'];
+		$sql = "UPDATE tasks SET status = '1' WHERE id = $editID";
+        $result = $conn->query($sql);
 	}
 	?>
 </body>
